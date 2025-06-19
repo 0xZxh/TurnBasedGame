@@ -13,8 +13,8 @@
 - 如需实际开发，可在根目录新建 `src/` 存放核心代码。
 - 配置文件位于 `excel/` 目录，启动时按需加载。
 - 若引入构建工具，可自行创建 `package.json` 并执行 `npm install` 安装依赖。
-- 编写入口脚本初始化 `BattleManager` 等模块，便可开始调试。
-项目中将技能资源值 **EPS** 称为 **属性值**，主动技能释放时需要消耗该属性。
+- 编写入口脚本初始化 `BattleManager` 等模块，便可开始调试。 
+项目中将技能资源值 **EPS** 称为 **属性值**，主动技能释放时需要消耗该属性。 
 ## 战斗流程
 
 ```
@@ -67,6 +67,17 @@
 - 每个角色维护自身状态，可叠加并具有持续时间。
 - Buff/Debuff 会影响角色属性或技能可用性，例如降低 属性值 (EPS) 上限。
 - 状态变化可能同时影响 属性值 (EPS)、技能效果以及被动触发。
+
+## 战斗框架
+
+- **BattleManager**：负责控制整体战斗流程，包括回合循环与胜负判断。
+- **Actor**：角色实体，包含属性、技能和 Buff 列表。
+- **SkillSystem**：驱动技能释放流程，解析配置并触发事件。
+- **BuffSystem**：管理 Buff 的添加、刷新与消失，处理持续效果。
+- **EventSystem**：事件发布与订阅中心，供被动技能和 Buff 使用。
+- **AI**：控制非玩家角色的行动决策。
+- **DataLoader**：从 JSON 等配置文件加载战斗所需数据。
+- **RecordManager**：可选的战斗记录与回放功能，方便调试。
 
 ## 战斗框架
 
@@ -257,6 +268,17 @@
 
 - Characters maintain their own buffs which may stack and have durations.
 - Buffs/Debuffs can affect skill availability or alter stats such as attribute (EPS) capacity.
+
+### Battle Framework
+
+- **BattleManager**: controls the overall flow including turns and win checks.
+- **Actor**: entity containing attributes, skills and a buff list.
+- **SkillSystem**: drives skill usage, parses configs and emits events.
+- **BuffSystem**: handles adding, refreshing and removing buffs with periodic effects.
+- **EventSystem**: central event bus used by passives and buffs.
+- **AI**: governs decision making for non-player units.
+- **DataLoader**: loads battle data from JSON or other formats.
+- **RecordManager**: optional recording and replay support for debugging.
 
 ### Battle Framework
 
