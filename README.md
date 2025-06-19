@@ -6,6 +6,7 @@
 
 **TurnBasedGame** 是一个用于实验回合制战斗机制的示例仓库。本文档整理了当前设计思路，包括战斗流程、技能、Buff 与配置文件格式等内容，方便后续实现与维护。
 
+项目中将技能资源值 **EPS** 称为 **属性值**，主动技能释放时需要消耗该属性。
 ## 战斗流程
 
 ```
@@ -26,18 +27,38 @@
 
 ### 主动技能
 - 满足释放条件后选定目标并产生效果。
-- 消耗 **EPS**（技能资源值）。
+- 消耗 **属性值 (EPS)**（技能资源值）。
 - 根据情况触发额外效果（如暴击、连击、吸血等）。
 
 ### 被动技能
 - 常驻或在特定条件下触发，无需额外消耗。
 - 通常绑定在角色生命周期事件上（如战斗开始、受到伤害等）。
 
+#### 被动触发条件
+`battleSkill.json` 的 `passdo` 字段记录被动技能触发条件，当前配置包含：
+- `baoji_b_s`
+- `chang`
+- `changeSkill`
+- `die`
+- `dot`
+- `heal_b_e`
+- `hurt_a_e`
+- `hurt_a_e_pt`
+- `hurt_a_s`
+- `hurt_b_e`
+- `hurt_b_s`
+- `kill`
+- `mp_at_e`
+- `mp_at_s`
+- `otherDie`
+- `pt_at_e`
+- `pt_at_s`
+- `subhp_b_e`
 ## Buff 与状态
 
 - 每个角色维护自身状态，可叠加并具有持续时间。
-- Buff/Debuff 会影响角色属性或技能可用性，例如降低 EPS 上限。
-- 状态变化可能同时影响 EPS、技能效果以及被动触发。
+- Buff/Debuff 会影响角色属性或技能可用性，例如降低 属性值 (EPS) 上限。
+- 状态变化可能同时影响 属性值 (EPS)、技能效果以及被动触发。
 
 ## 配置文件示例
 
@@ -75,13 +96,13 @@
 
 ### Skill System
 
-- **Active Skills**: consume EPS, target specific units and may trigger bonus effects.
-- **Passive Skills**: always active or triggered by conditions without EPS cost.
+- **Active Skills**: consume attribute points (EPS), target specific units and may trigger bonus effects.
+- **Passive Skills**: always active or triggered by conditions without attribute points (EPS) cost.
 
 ### Buffs
 
 - Characters maintain their own buffs which may stack and have durations.
-- Buffs/Debuffs can affect skill availability or alter stats such as EPS capacity.
+- Buffs/Debuffs can affect skill availability or alter stats such as attribute (EPS) capacity.
 
 ### Configuration Examples
 
