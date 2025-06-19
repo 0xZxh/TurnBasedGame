@@ -39,6 +39,17 @@
 - Buff/Debuff 会影响角色属性或技能可用性，例如降低 EPS 上限。
 - 状态变化可能同时影响 EPS、技能效果以及被动触发。
 
+## 战斗框架
+
+- **BattleManager**：负责控制整体战斗流程，包括回合循环与胜负判断。
+- **Actor**：角色实体，包含属性、技能和 Buff 列表。
+- **SkillSystem**：驱动技能释放流程，解析配置并触发事件。
+- **BuffSystem**：管理 Buff 的添加、刷新与消失，处理持续效果。
+- **EventSystem**：事件发布与订阅中心，供被动技能和 Buff 使用。
+- **AI**：控制非玩家角色的行动决策。
+- **DataLoader**：从 JSON 等配置文件加载战斗所需数据。
+- **RecordManager**：可选的战斗记录与回放功能，方便调试。
+
 ## 配置文件示例
 
 - `battleSkill.json`：定义技能基础信息、效果及触发方式。
@@ -187,6 +198,17 @@
 
 - Characters maintain their own buffs which may stack and have durations.
 - Buffs/Debuffs can affect skill availability or alter stats such as EPS capacity.
+
+### Battle Framework
+
+- **BattleManager**: controls the overall flow including turns and win checks.
+- **Actor**: entity containing attributes, skills and a buff list.
+- **SkillSystem**: drives skill usage, parses configs and emits events.
+- **BuffSystem**: handles adding, refreshing and removing buffs with periodic effects.
+- **EventSystem**: central event bus used by passives and buffs.
+- **AI**: governs decision making for non-player units.
+- **DataLoader**: loads battle data from JSON or other formats.
+- **RecordManager**: optional recording and replay support for debugging.
 
 ### Configuration Examples
 
