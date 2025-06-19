@@ -6,6 +6,14 @@
 
 **TurnBasedGame** 是一个用于实验回合制战斗机制的示例仓库。本文档整理了当前设计思路，包括战斗流程、技能、Buff 与配置文件格式等内容，方便后续实现与维护。
 
+## 启动项目指南
+
+- 安装 Node.js（建议 16 以上版本）。
+- 克隆或下载本仓库到本地。
+- 如需实际开发，可在根目录新建 `src/` 存放核心代码。
+- 配置文件位于 `excel/` 目录，启动时按需加载。
+- 若引入构建工具，可自行创建 `package.json` 并执行 `npm install` 安装依赖。
+- 编写入口脚本初始化 `BattleManager` 等模块，便可开始调试。
 项目中将技能资源值 **EPS** 称为 **属性值**，主动技能释放时需要消耗该属性。
 ## 战斗流程
 
@@ -71,6 +79,17 @@
 - **DataLoader**：从 JSON 等配置文件加载战斗所需数据。
 - **RecordManager**：可选的战斗记录与回放功能，方便调试。
 
+## 战斗框架
+
+- **BattleManager**：负责控制整体战斗流程，包括回合循环与胜负判断。
+- **Actor**：角色实体，包含属性、技能和 Buff 列表。
+- **SkillSystem**：驱动技能释放流程，解析配置并触发事件。
+- **BuffSystem**：管理 Buff 的添加、刷新与消失，处理持续效果。
+- **EventSystem**：事件发布与订阅中心，供被动技能和 Buff 使用。
+- **AI**：控制非玩家角色的行动决策。
+- **DataLoader**：从 JSON 等配置文件加载战斗所需数据。
+- **RecordManager**：可选的战斗记录与回放功能，方便调试。
+
 ## 配置文件示例
 
 - `battleSkill.json`：定义技能基础信息、效果及触发方式。
@@ -80,6 +99,16 @@
 - `battleCaller.json`：召唤单位的属性、持续时间与技能列表。
 
 更多字段请参考相应配置文件中的注释。
+
+## 代码结构
+
+本仓库提供一个简单的 `src/` 目录用于编写核心逻辑，目前包含以下文件：
+
+- `BattleManager.ts`：控制战斗回合循环与结束判定。
+- `Actor.ts`：描述角色属性与行动。
+- `Skill.ts`：定义技能效果及释放流程。
+- `types.ts`：枚举与接口集合。
+- `index.ts`：演示如何初始化并运行一场简单战斗。
 
 ## 类型定义
 
@@ -194,6 +223,15 @@
 
 **TurnBasedGame** is a sample repository for experimenting with a turn-based battle system. This document summarizes the current design, covering the battle flow, skills, buffs and configuration formats.
 
+### Project Setup
+
+- Install Node.js (version 16 or above recommended).
+- Clone or download this repository.
+- Create a `src/` folder for your core logic if implementing the framework.
+- The configuration JSON files reside in `excel/`. Load them as needed.
+- If you use build tools, create a `package.json` and run `npm install` to install dependencies.
+- Write an entry script that initializes modules like `BattleManager` for testing.
+
 ### Battle Flow
 
 ```
@@ -231,9 +269,30 @@
 - **DataLoader**: loads battle data from JSON or other formats.
 - **RecordManager**: optional recording and replay support for debugging.
 
+### Battle Framework
+
+- **BattleManager**: controls the overall flow including turns and win checks.
+- **Actor**: entity containing attributes, skills and a buff list.
+- **SkillSystem**: drives skill usage, parses configs and emits events.
+- **BuffSystem**: handles adding, refreshing and removing buffs with periodic effects.
+- **EventSystem**: central event bus used by passives and buffs.
+- **AI**: governs decision making for non-player units.
+- **DataLoader**: loads battle data from JSON or other formats.
+- **RecordManager**: optional recording and replay support for debugging.
+
 ### Configuration Examples
 
 Refer to the various `battle*.json` files for details on skills, effects, buffs, bullets and summoned units.
+
+## Project Structure
+
+Core logic resides under `src/` and currently contains:
+
+- `BattleManager.ts`: handles the battle loop and win checks.
+- `Actor.ts`: represents a combat unit.
+- `Skill.ts`: skill definitions and casting logic.
+- `types.ts`: shared enums and interfaces.
+- `index.ts`: small demo showing how to start a battle.
 
 ## Type Definitions
 
