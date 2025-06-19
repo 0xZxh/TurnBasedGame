@@ -1,3 +1,4 @@
+ 
 // Import the Skill class so each actor can own skills
 import { Skill } from './Skill.js'
 
@@ -15,37 +16,50 @@ export class Actor {
   skills: Skill[] = []
 
   // create a new actor with given id, starting hp and team
+ 
+
+export class Actor {
+  id: string
+  hp: number
+  maxHp: number
+  team: number
+  skills: Skill[] = []
+
+>>>>>>> main
   constructor(id: string, hp: number, team: number) {
     this.id = id
     this.hp = hp
     this.maxHp = hp
     this.team = team
   }
-
-  // attach a skill to this actor
+ 
+  // attach a skill to this actor  
   addSkill(skill: Skill) {
     this.skills.push(skill)
   }
-
+ 
   // whether the actor is still alive
+ 
   isAlive() {
     return this.hp > 0
   }
-
+ 
   // placeholder hook for passive skill triggers at start of turn
+ 
   onTurnStart() {
     // TODO: handle passive triggers
   }
-
+ 
   // perform one action (always uses first skill for demo)
+ 
   act() {
     const skill = this.skills[0]
     if (skill) {
       skill.cast(this)
     }
   }
-
-  // reduce hp when taking damage
+ 
+  // reduce hp when taking damage 
   receiveDamage(amount: number) {
     this.hp -= amount
     if (this.hp < 0) this.hp = 0
