@@ -1,0 +1,22 @@
+[
+  {"id":"22","name":"测试","resId":"h101_2","radius":100,"speed":0,"cansel":1,"layer":1,"ctime":-1,"psEps":{},"exEps":{"atk":5000,"hp_max":1000},"skills":[103]},
+  {"id":"33","name":"5秒木桩","resId":"h101_2","radius":100,"speed":0,"cansel":1,"layer":1,"ctime":5000,"psEps":{},"exEps":{"atk":100,"hp_max":1000000},"skills":[102]},
+  {"id":"120602012","name":"残留火焰","resId":"call_120602012","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000000},"skills":[12060301]},
+  {"id":"120602022","name":"残留火焰","resId":"call_120602022","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000000},"skills":[12060302]},
+  {"id":"120602032","name":"残留火焰","resId":"call_120602032","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000000},"skills":[12060303]},
+  {"id":"130102011","name":"木桩","resId":"h101_1","radius":100,"speed":0,"cansel":1,"layer":1,"ctime":1000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[]},
+  {"id":"130102021","name":"木桩","resId":"h101_2","radius":100,"speed":0,"cansel":1,"layer":1,"ctime":1000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[]},
+  {"id":"130102031","name":"木桩","resId":"h101_3","radius":100,"speed":0,"cansel":1,"layer":1,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[]},
+  {"id":"130502011","name":"治疗雨","resId":"h101_2","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[13050301]},
+  {"id":"130502021","name":"治疗雨","resId":"h101_2","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[13050302]},
+  {"id":"130502031","name":"治疗雨","resId":"h101_2","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":3000,"psEps":{},"exEps":{"atk":100,"hp_max":1000},"skills":[13050303]},
+  {"id":"120602012","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120602022","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120602032","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120603012","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120603022","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120603032","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120604012","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120604022","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null},
+  {"id":"120604032","name":"灼烧大地","resId":"","radius":0,"speed":0,"cansel":0,"layer":0,"ctime":0,"psEps":null,"exEps":null,"skills":null}
+]
