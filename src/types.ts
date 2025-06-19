@@ -1,3 +1,4 @@
+// Target selection tags used when resolving effects
 export enum EffectSelTag {
   dft = 'dft',
   skill = 'skill',
@@ -27,12 +28,14 @@ export enum EffectSelTag {
   bulle_aoe = 'bulle_aoe'
 }
 
+// Basic classification of skills
 export enum SkillType {
   pt = 'pt',
   dz = 'dz',
   bsk = 'bsk'
 }
 
+// Types of effects that a skill can produce
 export enum EffectType {
   hurt_p = 'hurt_p',
   hurt_m = 'hurt_m',
@@ -48,6 +51,7 @@ export enum EffectType {
   attr = 'attr'
 }
 
+// Different categories of buffs or debuffs
 export enum BuffType {
   attr = 'attr',
   dot = 'dot',
@@ -62,6 +66,7 @@ export enum BuffType {
   changeSkill = 'changeSkill'
 }
 
+// Stage of a skill during casting
 export enum SkillStage {
   start = 'start',
   fang = 'fang',
@@ -69,6 +74,7 @@ export enum SkillStage {
   stop = 'stop'
 }
 
+// Events that can trigger passive skills
 export enum PassDo {
   create = 'create',
   neal_die = 'neal_die',
@@ -92,26 +98,40 @@ export enum PassDo {
   changeSkill = 'changeSkill'
 }
 
+// Parameters used to describe passive skill limits
 export interface PassParam {
+  // trigger when HP lower than this value
   hpLow: number
+  // trigger when HP higher than this value
   hpHig: number
+  // maximum number of times allowed
   limit: number
+  // related skill ids
   skills: number[]
+  // required buff group id
   haveBuffZid: number
 }
 
+// Condition parameters referenced by passives
 export interface CondParam {
+  // check if target has specified buff
   buff?: {
     type?: BuffType
     zid?: string
     id?: string
+    // 1 means condition passes when buff is absent
     notHave?: 0 | 1
   }
+  // check if triggered buff matches certain criteria
   isbuff?: {
     type?: BuffType
+    // 1: beneficial, 2: detrimental
     isgood?: number
   }
+  // caster HP lower than this
   hpLow?: number
+  // target HP lower than this
   hpLow_b?: number
+  // caster HP higher than this
   hpHight?: number
 }
