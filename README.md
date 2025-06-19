@@ -6,6 +6,15 @@
 
 **TurnBasedGame** 是一个用于实验回合制战斗机制的示例仓库。本文档整理了当前设计思路，包括战斗流程、技能、Buff 与配置文件格式等内容，方便后续实现与维护。
 
+## 启动项目指南
+
+- 安装 Node.js（建议 16 以上版本）。
+- 克隆或下载本仓库到本地。
+- 如需实际开发，可在根目录新建 `src/` 存放核心代码。
+- 配置文件位于 `excel/` 目录，启动时按需加载。
+- 若引入构建工具，可自行创建 `package.json` 并执行 `npm install` 安装依赖。
+- 编写入口脚本初始化 `BattleManager` 等模块，便可开始调试。
+
 ## 战斗流程
 
 ```
@@ -172,6 +181,15 @@
 ### Overview
 
 **TurnBasedGame** is a sample repository for experimenting with a turn-based battle system. This document summarizes the current design, covering the battle flow, skills, buffs and configuration formats.
+
+### Project Setup
+
+- Install Node.js (version 16 or above recommended).
+- Clone or download this repository.
+- Create a `src/` folder for your core logic if implementing the framework.
+- The configuration JSON files reside in `excel/`. Load them as needed.
+- If you use build tools, create a `package.json` and run `npm install` to install dependencies.
+- Write an entry script that initializes modules like `BattleManager` for testing.
 
 ### Battle Flow
 
